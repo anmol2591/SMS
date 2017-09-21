@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}" />
+        <title>Course Listing APP - {% block title %}Welcome!{% endblock %}</title>
+    </head>
+
+    <body>
+        <div>
+            {% block myhdg %}  <h3>   Welcome {{ user.username }}</h3>
+ {% endblock %}
+                        {% block body_block %}
+
+
+            {% endblock %}
+        </div>
+        <hr >
+        <div>
+            <ul>
+
+                {% if user.is_authenticated %}
+                                       <p><a href="{% url 'myapp:logout' %}">Logout</a>
+
+                     {%  block mycourse %}   <p><a href="{% url 'myapp:mycourses' %}">MyCourses</a> </p> {% endblock %}
+                    {% else %}
+                        <p><a href="{% url 'myapp:login' %}">Login</a></p>
+                    <p>If youre a new user <a href="{% url 'myapp:register' %}">Register</a></p>
+
+                {% endif %}
+                <li class="hbar1"><a href="/myapp/about/">Find out about this site</a></li>
+                <li class="hbar1"><a href = "{% url 'myapp:index' %}">Click here to return to main page</a><br/></li>
+                <li class="hbar1"><a href = "{% url 'myapp:topics' %}">Topics</a><br/></li>
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+.hbar1 {
+    display: inline;
+    margin: 15px;
+}
+
+h1{
+    color:aquamarine;
+    font-size:20px;
+    font-style: italic;
+    position: relative;
+
+}
+body{
+    background-color: aquamarine;
+}

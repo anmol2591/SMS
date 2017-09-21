@@ -1,0 +1,8 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+    <p><a href="/myapp/">IndexHard</a></p>
+
+    <p><a href="{% url 'myapp:index' %}">IndexURL</a> </p>
+
+{% endblock %}

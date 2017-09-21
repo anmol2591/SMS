@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+    {% if topiclist %}
+        <h2>List of Topics</h2>
+        <ol>
+            {% for topic  in topiclist %}
+                <li> <a href="/myapp/topicdetails/{{ topic.id }}" >{{ topic.subject}}</a> </li>
+            {% endfor %}
+        </ol>
+
+ {% else %}
+     <strong>There are no available courses!</strong>
+ {% endif %}
+<h3>To add a new topic:</h3>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="submit"/>
+
+    </form>
+
+{% endblock %}

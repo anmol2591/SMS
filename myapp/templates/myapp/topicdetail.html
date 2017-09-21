@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+    {% block title %}Topic Detail{% endblock %}
+
+    {% block body_block %}
+        <H3>
+            TOPIC DETAILS<br>
+        </H3>
+            Topic name       : {{ topicdetail.subject }}<br>
+            No. of responses : {{ topicdetail.num_responses }}<br>
+            {% if topicdetail.intro_course == True %}
+                Intro course     : YES <br>
+            {% else %}
+                Intro course     : No <br>
+            {% endif %}
+
+            Avg age          : {{ topicdetail.avg_age }} <br>
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+        </form>
+
+    {% endblock %}
